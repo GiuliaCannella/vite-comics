@@ -1,0 +1,12 @@
+@use './partials/reset' as *;
+@use './partials/utils' as *;
+@use './partials/mixins' as *;
+
+body {
+    font-family: "Open Sans";
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
