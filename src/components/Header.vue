@@ -3,18 +3,53 @@ export default {
     data() {
         return {
             links: [
-                'characters',
-                'comics',
-                'movies',
-                'tv',
-                'games',
-                'collectibles',
-                'videos',
-                'fans',
-                'news',
-                'shop'
+                {
+                    title: 'characters',
+                    url: '#',
+                },
+                {
+                    title: 'comics',
+                    url: '#'
+                },
+                {
+                    title: 'movies',
+                    url: '#',
+                },
+                {
+                    title: 'tv',
+                    url: '#',
+                },
+                {
+                    title: 'games',
+                    url: '#',
+                },
+                {
+                    title: 'collectibles',
+                    url: '#',
+                },
+                {
+                    title: 'videos',
+                    url: '#',
+                },
+                {
+                    title: 'fans',
+                    url: '#',
+                },
+                {
+                    title: 'news',
+                    url: '#',
+                },
+                {
+                    title: 'shop',
+                    url: '#',
+                }
             ],
             indexLink: 1
+        }
+    },
+    methods: {
+        changePage(index) {
+            this.indexLink = index;
         }
     },
 }
@@ -23,11 +58,15 @@ export default {
 <template>
     <div class="container d-flex justify-content-center align-items-center">
         <div class="container-logo w-30">
-            <img src="../assets/img/dc-logo.png" alt="">
+            <img src="/img/dc-logo.png" alt="">
         </div>
         <div class="container-links w-70">
             <ul>
-                <li v-for="(link, index) in links" :class="index === indexLink ? 'active' : ''" class="">{{ link }}</li>
+                <li v-for="(link, index) in links">
+                    <a @click="changePage(index)" :href="link.url" :class="index === indexLink ? 'active' : ''" class="">
+                        {{ link.title }}
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -53,17 +92,21 @@ export default {
             list-style: none;
 
             li {
-                border-bottom: 2px solid transparent;
-                text-transform: uppercase;
-                font-size: 0.8em;
-                padding: 0.8em;
+                a {
+                    border-bottom: 2px solid transparent;
+                    text-transform: uppercase;
+                    font-size: 0.8em;
+                    padding: 0.8em;
+                    text-decoration: none;
+                    color: black;
 
 
-                &:hover,
-                &.active {
-                    border-bottom: 2px solid #0379f1;
-                    cursor: pointer;
-                    color: #0379f1;
+                    &:hover,
+                    &.active {
+                        border-bottom: 2px solid #0379f1;
+                        cursor: pointer;
+                        color: #0379f1;
+                    }
                 }
             }
 
