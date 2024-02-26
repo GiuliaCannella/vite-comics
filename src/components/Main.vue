@@ -16,10 +16,10 @@ export default {
 
     </div>
     <section id="heroes">
-        <div class="container-card bar d-flex">
-            <div class="card" v-for="hero in heroes" :key="heroes.series">
-                <img :src="heroes.thumb" :alt="heroes.series">
-                <h3>{{ heroes.series }}</h3>
+        <div class="container-card">
+            <div class="card" v-for="hero in heroes" :key="hero.series">
+                <img :src="hero.thumb" :alt="hero.series">
+                <h3>{{ hero.series }}</h3>
 
             </div>
         </div>
@@ -30,13 +30,6 @@ export default {
 
 <style lang="scss" scope>
 @use '../assets/scss/partials/utils' as *;
-
-.bar {
-    width: 100%;
-    height: 900px;
-    background-color: black;
-    color: white;
-}
 
 .jumbotron-bg {
 
@@ -49,14 +42,24 @@ export default {
 .container-card {
     display: flex;
     flex-wrap: wrap;
-}
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 2em;
 
-.card {
-    width: calc(100% / 6);
-    padding: 20px;
+    .card {
+        width: calc(100% / 6);
+        padding: 20px;
 
-    .h3 {
-        font-size: 80em;
+        h3 {
+            font-size: 0.8em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        img {
+            width: 100%;
+        }
     }
 }
 </style>

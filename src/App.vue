@@ -105,7 +105,7 @@ export default {
 
 <template>
     <Header />
-    <Main />
+    <Main :heroes="heroes" />
     <Footer />
 </template>
 
